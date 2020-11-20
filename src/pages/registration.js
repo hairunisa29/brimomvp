@@ -1,57 +1,99 @@
-import React, { Fragment } from "react";
+import logo from './login.svg';
+import React, { Fragment, useState } from "react";
 
 
-export default function Registration() {
+const RegistrationCustomerService = () => {
+
+    const [realname, setRealname] = useState('');
+    const [fakename, setFakename] = useState('');
+    const [password, setPassword] = useState('');
+
+    const changeRealname = (r) => {
+        const value = r.target.value
+        setRealname(value)
+    }
+    const changeFakename = (f) => {
+        const value = f.target.value
+        setFakename(value)
+    }
+    const changePassword = (p) => {
+        const value = p.target.value
+        setPassword(value)
+    }
+
+    const klikRegister = () => {
+        const data = {
+            realname: realname,
+            fakename: fakename,
+            password: password,
+        }
+        console.log(data)
+        // // axios.post('http://localhost3000/registrationcostumerservice', data)
+        // .then(result =>{
+        //     console.log(result)
+        // })
+    }
+
     return (
         <Fragment>
             <div className="Regis">
-                <form>
-                <h3 className="heading3">Registration</h3>
-                    <div className="form-row">
-                        <div className="form-group col-md-6">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" className="form-control" id="inputEmail" placeholder="Email"/>
+                <div className="container">
+                    <form style={{ width: "100%" }}>
+                        <div className="row">
+                            <div className="col">
+                                <img src={logo} alt="ilustrasi login" />
+                            </div>
+                            <div className="col">
+                                <div className="form-group">
+                                    <h3 className="heading3">Customer Service/SPV Registration</h3>
+                                    <label htmlFor="RealName">Real Name</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="RealName"
+                                        placeholder="Enter Real Name"
+                                        value={realname}
+                                        onChange={changeRealname}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="FakeName">Fake Name</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="FakeName"
+                                        placeholder="Enter Fake Name"
+                                        value={fakename}
+                                        onChange={changeFakename}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="Password">Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="Password"
+                                        placeholder="Enter Password"
+                                        value={password}
+                                        onChange={changePassword}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="File1">Upload Real Photo</label>
+                                    <input type="file" className="form-control-file" id="File1" />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="File2">Upload Fake Photo</label>
+                                    <input type="file" className="form-control-file" id="File2" />
+                                </div>
+                                <a className="btn btn-primary"  onClick={klikRegister}>Register Now</a>
+                            </div>
                         </div>
-                        <div className="form-group col-md-6">
-                            <label for="inputKTP">No.KTP</label>
-                            <input type="text" className="form-control" id="inputKTP" placeholder="ID Number"/>
-                        </div>
-                    </div>
-                    <div className="form-row">
-                        <div className="form-group col-md-6">
-                            <label for="inputFullName">Fullname</label>
-                            <input type="text" className="form-control" id="inputFullname" placeholder="Fullname"/>
-                        </div>
-                        <div className="form-group col-md-6">
-                            <label for="inputNoHP">No.HP</label>
-                            <input type="text" className="form-control" id="inputNoHP" placeholder="Phone Number"/>
-                        </div>
-                    </div>
-                    <div className="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputUsername">Username</label>
-                            <input type="username" className="form-control" id="inputUsername" placeholder="Username"/>
-                        </div>
-                        <div className="form-group col-md-6">
-                            <label for="inputNoRek">No.Rekening</label>
-                            <input type="text" className="form-control" id="inputNoRek" placeholder="Bank Account Number"/>
-                        </div>
-                    </div>
-                    <div className="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">Password</label>
-                            <input type="password" className="form-control" id="inputPassword" placeholder="Password"/>
-                        </div>
-                        <div className="button col-md-6">
-                            <button type="submit" className="btn btn-primary">Register</button>
-                            <small className="form-text text-muted">
-                                Already have an account? 
-                                <a href="default.asp" target="_blank"> Sign in.</a>
-                            </small>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </Fragment>
     )
 }
+
+export default RegistrationCustomerService
