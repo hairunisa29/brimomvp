@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from '../illustration/login.svg';
 import './pages.css';
-import Header from './header.js'
-import Footer from './footer.js'
-import ComplaintPage from './complaintpage.js'
+import Footer from './footer.js';
+
 
 export default function Login() {
-    
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    const onChangeUsername = (e) => {
+        const value = e.target.value
+        setUsername(value)
+    }
+
+    const onChangePassword = (e) => {
+        const value = e.target.value
+        setPassword(value)
+    }
+
     return (
             <div className="Login">
                
@@ -31,6 +43,8 @@ export default function Login() {
                                     className="form-control" 
                                     id="username"
                                     placeholder = "Enter Username"
+                                    value={username}
+                                    onChange={onChangeUsername}
                                 />
                             </div>
                             <div className="form-group">
@@ -40,14 +54,17 @@ export default function Login() {
                                     className="form-control" 
                                     id="password"
                                     placeholder = "Enter Password"
+                                    value={password}
+                                    onChange={onChangePassword}
                                 />
-                               
+                                <small className="form-text text-muted">
+                                    <Link to ="/passwordrecovery">Forgot password?</Link>
+                                </small>
                             </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <Link to ="/listcomplaint" button type="submit" class="btn btn-primary">Login</Link>
                             <small className="form-text text-muted">
                                 Don't have an account?
                                 <Link to ="/registration"> Sign up.</Link>
-                                <Link to ="/complaintpage"> complaintpage</Link>
                             </small>
                         </form>   
                         </div>

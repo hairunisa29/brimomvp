@@ -1,5 +1,16 @@
-#textArea{
+#textArea, #inputSubject{
   border-radius: 9px;
+  width: 100%
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.card-body{
+  padding: 10px 10px 10px 45px
 }
 
 .col1{
@@ -27,9 +38,9 @@
 
   .col5 {
     padding-top: 0px;
-    padding-right: 20px;
+    padding-right: 50px;
     padding-bottom: 50px;
-    padding-left:80px;
+    padding-left:50px;
   }
 
 
@@ -49,17 +60,24 @@
     padding-bottom: 80px;
     padding-left:100px;
   }
+
+  .col8{
+    margin-top:20px;
+    padding-bottom:80px
+  }
   
 
   #complaint{
+    display: flex;
     width: 50%;
     align-items: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 80px 50px 80px 350px;
+    margin: 80px 50px 80px 80px;
     padding-top:35px;
+    border:none
   }
 
 
@@ -72,3 +90,51 @@
     background-color: #004f97;
   }
   
+
+
+.table{
+  text-align: center; 
+  margin-bottom: 50px;
+}
+
+
+.btn-float{
+    position:fixed;
+   
+    bottom:40px;
+    right:40px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+
+#InputFeedback{
+  margin-bottom:20px;
+  border-radius: 9px;
+  
+}
+
+#button-addon2{
+  width:35%;
+  align-items: center;
+  background-color:#f37024
+}
+
+.rating{
+  background-color: #004f97;
+  text-align: center;
+  align-items: center;
+  color: white;
+}
+
+.closeButton{
+  background-color: #f34216;
+  width: 35%;
+}
+
+.close{
+  width:5%
+}

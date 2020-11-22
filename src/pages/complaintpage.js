@@ -4,25 +4,28 @@ import Footer from './footer.js'
 
 export default function ComplaintPage(){
     return(
+        <div className="App">
             <div className="complaint">
                 <Header/>
-            <div className="card" id="complaint">
+            <div className="card mx-auto px-auto" id="complaint">
                 <h3 className="heading3">Complaint</h3>
                 <div class="row">
-                    <div class="col5">
+                    <div class="card-body mx-auto">
                         <form>
                         <div class="form-group">
                             <label for="inputSubject">Subject</label>
-                            <input type="text" class="form-control" id="input" placeholder="Subject"/>
+                            <input type="text" class="form-control" id="inputSubject" placeholder="Subject"/>
                         </div> 
                         <div class="form-group">
                             <label for="textArea">Details</label>
                             <textarea class="form-control" id="textArea" rows="3"></textarea>
+                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        
                         </form>  
                     </div>
-                    <div class="col5">
+                    <div class="card-body mx-auto">
                         <form>
                             <div class="form-group">
                                 <label for="upload">Additional File</label>
@@ -64,6 +67,7 @@ export default function ComplaintPage(){
                 
             </div>
             <Footer/>
+            </div>
             </div>
 
     )

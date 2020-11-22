@@ -1,41 +1,70 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import Header from './header.js'
 import Footer from './footer.js'
+import RatingCustomerToCS from './ratingpopup.js'
 
 
-export default function ListComplaint() {
+
+export default class ListComplaint extends React.Component{
+    render(){
     return(
-        <div className="container">
+        <Fragment>
             <Header/>
-            <table class="table table-hover">
+            
+            <div className="col8">
+            <h3 className="heading3">Complaint</h3>
+            <table className="table table-hover">
+            
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Ticket Number</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Assigned to</th>
+                        <th scope="col">Feedback</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Rating</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
+                        <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
+                        <td><RatingCustomerToCS/></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Jacob</td>
+                        <td>Mark</td>
                         <td>Thornton</td>
                         <td>@fat</td>
+                        <td><RatingCustomerToCS/></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
+                        <td>Larry</td>
+                        <td>Mark</td>
+                        <td>Larry</td>
                         <td>@twitter</td>
+                        <td><RatingCustomerToCS/></td>
                         </tr>
                 </tbody>
             </table>
-        </div>
+            </div>
+                    <div class="btn-float">
+                        <Link to ="/complaintpage" button type="submit" class="btn btn-primary">
+                            <h5>
+                                <i class="fa fa-plus"></i>
+                                 New Complaint
+                            </h5>
+                            
+                        </Link>
+                    </div>
+            <Footer/>
+            </Fragment>
     )   
+}
 }
