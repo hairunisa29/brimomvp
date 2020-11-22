@@ -1,8 +1,22 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from './header.js'
 import Footer from './footer.js'
 
 export default function ComplaintPage(){
+    const [subject, setSubject] = useState('')
+    const [details, setDetails] = useState('')
+
+
+    const onChangeSubject = (e) => {
+        const value = e.target.value
+        setSubject(value)
+    }
+
+    const onChangeDetails = (e) => {
+        const value = e.target.value
+        setDetails(value)
+    }
+
     return(
         <div className="App">
             <div className="complaint">
@@ -14,7 +28,14 @@ export default function ComplaintPage(){
                         <form>
                         <div class="form-group">
                             <label for="inputSubject">Subject</label>
-                            <input type="text" class="form-control" id="inputSubject" placeholder="Subject"/>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="inputSubject" 
+                                placeholder="Subject"
+                                value={subject}
+                                onChange={onChange}
+                            />
                         </div> 
                         <div class="form-group">
                             <label for="textArea">Details</label>
@@ -29,31 +50,31 @@ export default function ComplaintPage(){
                         <form>
                             <div class="form-group">
                                 <label for="upload">Additional File</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+                                <input type="file" class="form-control-file" id="FileScreenshot"/>
                             </div>
                             
                                 <legend class="col-form-label">Category</legend>
                                 <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="layananpublik" value="option1" checked/>
                                     <label class="form-check-label" for="gridRadios1">
                                         Layanan Publik
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="mobilebanking" value="option1" checked/>
                                     <label class="form-check-label" for="gridRadios1">
                                         Mobile Banking
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="internetbanking" value="option1" checked/>
                                     <label class="form-check-label" for="gridRadios1">
                                         Internet Banking
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="others" value="option1" checked/>
                                     <label class="form-check-label" for="gridRadios1">
                                         Others
                                     </label>

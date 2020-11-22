@@ -12,18 +12,13 @@ function App () {
   return (
     <Router>
         <Switch>
-        <Route exact path="/" component={Login} />
-        <Route path="/registration" component={Registration} />
-        <Route path="/complaintpage" component={ComplaintPage} />
-        <Route path="/listcomplaint" component={ListComplaint} />
-        <Route path="/passwordrecovery" component={ForgotPassword} />
-    <div className="App">
-     <Login/>
-     
-    </div>
-        
-      
-    </Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/registration" component={Registration} />
+          <Route path="/complaintpage" component={ComplaintPage} />
+          <Route path="/listcomplaint" component={ListComplaint} />
+          <Route path="/forgotpassword" component={ForgotPassword} />  
+          <Route path="/resetpassword/:token" component={} />
+      </Switch>
     </Router>
     
   );

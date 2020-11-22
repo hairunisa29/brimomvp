@@ -1,17 +1,19 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Header from './header.js'
 import Footer from './footer.js'
 import RatingCustomerToCS from './ratingpopup.js'
 
 
+export default function ListComplaint() { 
+    const token = localStorage.getItem('token')
+    if(!token) {
+        return <Redirect to="/" />
+    }
 
-export default class ListComplaint extends React.Component{
-    render(){
     return(
         <Fragment>
             <Header/>
-            
             <div className="col8">
             <h3 className="heading3">Complaint</h3>
             <table className="table table-hover">
@@ -66,5 +68,5 @@ export default class ListComplaint extends React.Component{
             <Footer/>
             </Fragment>
     )   
-}
+
 }
