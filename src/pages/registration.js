@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import Footer from './footer.js';
 import axios from 'axios'
 
-export default function Registration() {
-    const [email, setEmail] = useState('')
-    const [fullname, setFullname] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [noktp, setNoKtp] = useState('')
-    const [nohp, setNoHp] = useState('')
-    const [norekening, setNoRekening] = useState('')
+const Registration =() => {
+    const [email, setEmail] = useState('');
+    const [fullname, setFullname] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [noktp, setNoKtp] = useState('');
+    const [nohp, setNoHp] = useState('');
+    const [norekening, setNoRekening] = useState('');
 
     
     const onChangeEmail = (e) => {
@@ -183,3 +183,7 @@ export default function Registration() {
         </Fragment>
     )
 }
+
+
+
+export default Registration;

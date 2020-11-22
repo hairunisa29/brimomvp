@@ -5,6 +5,7 @@ import Registration from './pages/registration.js'
 import ComplaintPage from './pages/complaintpage.js'
 import ListComplaint from './pages/listcomplaint.js'
 import ForgotPassword from './pages/forgotpassword.js'
+import ResetPassword from './pages/resetpassword.js'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App () {
@@ -17,7 +18,7 @@ function App () {
           <Route path="/complaintpage" component={ComplaintPage} />
           <Route path="/listcomplaint" component={ListComplaint} />
           <Route path="/forgotpassword" component={ForgotPassword} />  
-          <Route path="/resetpassword/:token" component={} />
+          <Route path="/resetpassword/:token" component={ResetPassword} />
       </Switch>
     </Router>
     

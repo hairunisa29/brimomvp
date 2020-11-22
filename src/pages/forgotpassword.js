@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import axios from 'axios';
 
 import './pages.css';
 import Header2 from './header2.js'
@@ -33,7 +34,7 @@ export default function ForgotPassword() {
         return(
             <Fragment>
             <Header2/>
-            <div className="card" style={{width:"35%"}}>
+            <div className="card" style={{width:"35%"}} id="forgotpassword">
                 {
                     alert && (
                         <div className="alert alert-danger">

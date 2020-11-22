@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import logo from '../illustration/login.svg';
 import './pages.css';
 import Footer from './footer.js';
-import axios from 'axios';
+import axios from 'axios'
 
 export default function Login() {
     const [username, setUsername] = useState('')
