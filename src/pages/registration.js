@@ -4,6 +4,15 @@ import './pages.css';
 import { Link } from "react-router-dom";
 
 export default function Registration() {
+    const [email, setEmail] = useState('')
+    const [fullname, setFullname] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [noktp, setNoKtp] = useState('')
+    const [nohp, setNoHp] = useState('')
+    const [norekening, setNoRekening] = useState('')
+
+
     return (
         <Fragment>
             <div className="Regis">
@@ -61,11 +70,7 @@ export default function Registration() {
                 </form>
           </div>
         </div>
-                <footer className="page-footer font-small blue">
-                    <div className="footer-copyright text-center py-3">
-                        Copyright © FE-BE 07 2020 
-                    </div>
-                </footer>
+                <Footer/>
         </div>
         </Fragment>
     )
