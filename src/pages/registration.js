@@ -56,20 +56,30 @@ const Registration =() => {
         setNoRekening(value)
     }
 
-    const clickRegister = () => {
+
+
+    const clickRegister = (e) => {
         const data={
             email: email,
-            fullname: fullname,
+            full_name: fullname,
             username: username,
             password: password,
-            noktp: noktp,
-            nohp: nohp,
-            norekening: norekening
+            no_ktp: noktp,
+            no_hp: nohp,
+            no_rekening: norekening
         }
-        axios.post('alamatAPI', data)
+
+
+        console.log(data)
+        axios.post('http://8783328865f7.ngrok.io/accounts/register', data)
         .then(result => {
             console.log(result)
         })
+        .catch(error => {
+            console.log(error.response)
+        });
+
+        e.preventDefault()
     }
 
     return (
@@ -81,11 +91,12 @@ const Registration =() => {
                     <h1 className="heading1">JOIN US!</h1>
             </div>
             <div className="col3">
-            <form>
+            <form >
+                {/* // onSubmit={clickRegister} */}
                 <h3 className="heading3">Registration</h3>
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label for="inputEmail">Email</label>
+                            <label htmlFor="inputEmail">Email</label>
                             <input 
                                 type="email" 
                                 className="form-control" 
@@ -96,7 +107,7 @@ const Registration =() => {
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label for="inputKTP">No.KTP</label>
+                            <label htmlFor="inputKTP">No.KTP</label>
                             <input 
                                 type="text" 
                                 className="form-control" 
@@ -109,7 +120,7 @@ const Registration =() => {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label for="inputFullName">Fullname</label>
+                            <label htmlFor="inputFullName">Fullname</label>
                             <input 
                                 type="text" 
                                 className="form-control"
@@ -120,7 +131,7 @@ const Registration =() => {
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label for="inputNoHP">No.HP</label>
+                            <label htmlFor="inputNoHP">No.HP</label>
                             <input 
                                 type="text" 
                                 className="form-control" 
@@ -132,8 +143,8 @@ const Registration =() => {
                         </div>
                     </div>
                     <div className="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputUsername">Username</label>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="inputUsername">Username</label>
                             <input 
                                 type="username" 
                                 className="form-control" 
@@ -144,7 +155,7 @@ const Registration =() => {
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label for="inputNoRek">No.Rekening</label>
+                            <label htmlFor="inputNoRek">No.Rekening</label>
                             <input 
                                 type="text" 
                                 className="form-control" 
@@ -156,8 +167,8 @@ const Registration =() => {
                         </div>
                     </div>
                     <div className="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">Password</label>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="inputPassword">Password</label>
                             <input 
                                 type="password" 
                                 className="form-control" 
@@ -168,7 +179,11 @@ const Registration =() => {
                             />
                         </div>
                         <div className="button col-md-6">
-                            <button type="submit" onClick={clickRegister} className="btn btn-primary">Register</button>
+                            <button 
+                                type="submit"  
+                                onClick={clickRegister}
+                                className="btn btn-primary"
+                            >Register</button>
                             <small className="form-text text-muted">
                                 Already have an account? 
                                 <Link to ="/"> Sign in.</Link>

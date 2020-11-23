@@ -6,13 +6,13 @@ import Footer from './footer.js';
 import axios from 'axios'
 
 export default function Login() {
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(false)
 
-    const onChangeUsername = (e) => {
+    const onChangeEmail = (e) => {
         const value = e.target.value
-        setUsername(value)
+        setEmail(value)
     }
 
     const onChangePassword = (e) => {
@@ -20,19 +20,26 @@ export default function Login() {
         setPassword(value)
     }
 
-    const submitLogin = () => {
+    const submitLogin = (e) => {
         const data={
-            username: username,
+            email: email,
             password: password,
         }
-        axios.post('alamatAPI', data)
+        axios.post('http://8783328865f7.ngrok.io/accounts/authenticate', data)
         .then(result => {
+            console.log(result)
+
             if(result) {
                 localStorage.setItem('token', result.data.token)
                 setRedirect(true)
             }
             console.log(result.data.token)
         })
+        .catch(error => {
+            console.log(error.response)
+        });
+
+        e.preventDefault()
     }
 
     return (
@@ -57,18 +64,18 @@ export default function Login() {
                         >
                             <div className="form-group">
                                 <h3 className="heading3">Login</h3>
-                                <label for="username">Username</label>
+                                <label htmlFor="email">Email</label>
                                 <input 
-                                    type="username" 
+                                    type="email" 
                                     className="form-control" 
-                                    id="username"
-                                    placeholder = "Enter Username"
-                                    value={username}
-                                    onChange={onChangeUsername}
+                                    id="email"
+                                    placeholder = "Enter Email"
+                                    value={email}
+                                    onChange={onChangeEmail}
                                 />
                             </div>
                             <div className="form-group">
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                                 <input 
                                     type="password" 
                                     className="form-control" 
@@ -82,6 +89,7 @@ export default function Login() {
                                 </small>
                             </div>
                             <button className="btn btn-primary" onClick={submitLogin}>Login</button>
+                            {/* <Link to ="/listcomplaint" className="btn btn-primary" type="button">Login</Link> */}
                             <small className="form-text text-muted">
                                 Don't have an account?
                                 <Link to ="/registration"> Sign up.</Link>

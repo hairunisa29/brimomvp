@@ -4,18 +4,25 @@ import Footer from './footer.js'
 
 export default function ComplaintPage(){
     const [subject, setSubject] = useState('')
-    const [details, setDetails] = useState('')
-
+    const [content, setContent] = useState('')
+    // const [file, setFile] = useState(null)
 
     const onChangeSubject = (e) => {
         const value = e.target.value
         setSubject(value)
     }
 
-    const onChangeDetails = (e) => {
+    const onChangeContent = (e) => {
         const value = e.target.value
-        setDetails(value)
+        setContent(value)
     }
+
+
+    // const handleFile = (e) => {
+    //     let file = e.target.files[0]
+
+    //     setFile({file:file})
+    // }
 
     return(
         <div className="App">
@@ -34,13 +41,21 @@ export default function ComplaintPage(){
                                 id="inputSubject" 
                                 placeholder="Subject"
                                 value={subject}
-                                onChange={onChange}
+                                onChange={onChangeSubject}
                             />
                         </div> 
                         <div class="form-group">
                             <label for="textArea">Details</label>
-                            <textarea class="form-control" id="textArea" rows="3"></textarea>
-                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                            <textarea 
+                                class="form-control" 
+                                id="textArea" 
+                                rows="3"
+                                value={content}
+                                onChange={onChangeContent}
+                            ></textarea>
+                            <button 
+                                type="submit" 
+                                className="btn btn-primary mt-2">Submit</button>
                         </div>
 
                         
@@ -48,16 +63,26 @@ export default function ComplaintPage(){
                     </div>
                     <div class="card-body mx-auto">
                         <form>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="upload">Additional File</label>
-                                <input type="file" class="form-control-file" id="FileScreenshot"/>
+                                <input 
+                                    type="file" 
+                                    class="form-control-file" 
+                                    id="FileScreenshot"
+                                    // onChange={(e)=>this.handleFile(e)}
+                                />
+                                <button 
+                                    className="btn btn-primary mt-2 col-8"
+                                    type="button"
+                                    // onClick={}
+                                >Upload</button>
                             </div>
                             
-                                <legend class="col-form-label">Category</legend>
-                                <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="layananpublik" value="option1" checked/>
-                                    <label class="form-check-label" for="gridRadios1">
+                                <legend className="col-form-label">Category</legend>
+                                <div className="col">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="radio" name="gridRadios" id="layananpublik" value="option1" checked/>
+                                    <label className="form-check-label" for="gridRadios1">
                                         Layanan Publik
                                     </label>
                                 </div>
