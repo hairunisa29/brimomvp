@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from "react";
 import Header from './header.js'
 import Footer from './footer.js'
+import axios from 'axios'
 
 export default function ComplaintPage(){
     const [subject, setSubject] = useState('')
     const [content, setContent] = useState('')
-    // const [file, setFile] = useState(null)
+    const [file, setFile] = useState(null)
+    const [category, setCategory] = useState('')
 
     const onChangeSubject = (e) => {
         const value = e.target.value
@@ -18,11 +20,43 @@ export default function ComplaintPage(){
     }
 
 
-    // const handleFile = (e) => {
-    //     let file = e.target.files[0]
+    const handleFile = (e) => {
+        let file = e.target.files[0]
 
-    //     setFile({file:file})
-    // }
+        setFile({file:file})
+    }
+
+
+    const handleUpload = (e) => {
+        console.log(file)
+    }
+
+
+    const handleCategory = (e) => {
+        const value = e.target.value
+        setCategory(value)
+        console.log(value)
+    }
+
+
+    const clickSubmit = (e) => {
+        const data={
+            name: category
+        }
+
+
+        console.log(data)
+        axios.post('', data)
+        .then(result => {
+            console.log(result)
+        })
+        .catch(error => {
+            console.log(error.response)
+        });
+
+        e.preventDefault()
+    }
+
 
     return(
         <div className="App">
@@ -30,87 +64,75 @@ export default function ComplaintPage(){
                 <Header/>
             <div className="card mx-auto px-auto" id="complaint">
                 <h3 className="heading3">Complaint</h3>
-                <div class="row">
-                    <div class="card-body mx-auto">
+                
+                    <div className="card-body mx-auto">
                         <form>
-                        <div class="form-group">
-                            <label for="inputSubject">Subject</label>
+                        <div className="form-group">
+                            <label htmlFor="inputSubject">Subject</label>
                             <input 
                                 type="text" 
-                                class="form-control" 
+                                className="form-control" 
                                 id="inputSubject" 
                                 placeholder="Subject"
                                 value={subject}
                                 onChange={onChangeSubject}
                             />
                         </div> 
-                        <div class="form-group">
-                            <label for="textArea">Details</label>
+                        <div className="form-group">
+                            <label htmlFor="textArea">Details</label>
                             <textarea 
-                                class="form-control" 
+                                className="form-control" 
                                 id="textArea" 
                                 rows="3"
                                 value={content}
                                 onChange={onChangeContent}
                             ></textarea>
-                            <button 
-                                type="submit" 
-                                className="btn btn-primary mt-2">Submit</button>
                         </div>
 
-                        
-                        </form>  
-                    </div>
-                    <div class="card-body mx-auto">
-                        <form>
-                            <div className="form-group">
-                                <label for="upload">Additional File</label>
-                                <input 
-                                    type="file" 
-                                    class="form-control-file" 
-                                    id="FileScreenshot"
-                                    // onChange={(e)=>this.handleFile(e)}
-                                />
-                                <button 
-                                    className="btn btn-primary mt-2 col-8"
-                                    type="button"
-                                    // onClick={}
-                                >Upload</button>
+                    
+                        <div className="form-group">
+                            <div className="row">
+                                <div className="col">
+                                    <label htmlFor="upload">Additional File</label>
+                                    <input 
+                                        type="file" 
+                                        className="form-control-file" 
+                                        id="FileScreenshot"
+                                        onChange={handleFile}
+                                    />
+                                </div>
+                                <div className="col">
+                                    <button 
+                                        className="btn btn-primary col-15"
+                                        type="button"
+                                        id="buttonUpload"
+                                        onClick={handleUpload}
+                                    >Upload</button>
+                                </div>
+                            
                             </div>
                             
-                                <legend className="col-form-label">Category</legend>
-                                <div className="col">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="gridRadios" id="layananpublik" value="option1" checked/>
-                                    <label className="form-check-label" for="gridRadios1">
-                                        Layanan Publik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="mobilebanking" value="option1" checked/>
-                                    <label class="form-check-label" for="gridRadios1">
-                                        Mobile Banking
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="internetbanking" value="option1" checked/>
-                                    <label class="form-check-label" for="gridRadios1">
-                                        Internet Banking
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="others" value="option1" checked/>
-                                    <label class="form-check-label" for="gridRadios1">
-                                        Others
-                                    </label>
-                                </div>
-                                </div>
-                            
-                        </form>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="category">Category</label>
+                                    <select 
+                                        className="form-control" 
+                                        id="category"
+                                        onChange={handleCategory}
+                                    >
+                                        <option value='Layanan Perbankan'>Layanan Perbankan</option>
+                                        <option value='Mobile Banking'>Mobile Banking</option>
+                                        <option value='Internet Banking'>Internet Banking</option>
+                                        <option value='Others'>Others</option>
+                                    </select>
+                            </div>
+                                <button 
+                                    type="submit" 
+                                    className="btn btn-primary mt-2"
+                                    onClick={clickSubmit}
+                                >Submit</button>
+                        </form>  
                     </div>
-                </div>
-                
-                
             </div>
             <Footer/>
             </div>

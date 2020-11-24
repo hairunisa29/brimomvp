@@ -11,6 +11,7 @@ export default function ListComplaint() {
         return <Redirect to="/" />
     }
 
+
     return(
         <Fragment>
             <Header/>
@@ -22,7 +23,6 @@ export default function ListComplaint() {
                     <tr>
                         <th scope="col">Ticket Number</th>
                         <th scope="col">Subject</th>
-                        <th scope="col">Assigned to</th>
                         <th scope="col">Feedback</th>
                         <th scope="col">Status</th>
                         <th scope="col">Rating</th>
@@ -31,28 +31,25 @@ export default function ListComplaint() {
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>ATM Tertelan</td>
+                        <td>-</td>
+                        <td>Belum Diproses</td>
                         <td><RatingCustomerToCS/></td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Mark</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                    <th scope="row">2</th>
+                        <td>ATM Tertelan</td>
+                        <td>-</td>
+                        <td>Belum Diproses</td>
                         <td><RatingCustomerToCS/></td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Mark</td>
-                        <td>Larry</td>
-                        <td>@twitter</td>
+                    <th scope="row">3</th>
+                        <td>ATM Tertelan</td>
+                        <td>-</td>
+                        <td>Belum Diproses</td>
                         <td><RatingCustomerToCS/></td>
-                        </tr>
+                    </tr>
                 </tbody>
             </table>
             </div>

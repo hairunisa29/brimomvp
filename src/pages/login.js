@@ -25,7 +25,7 @@ export default function Login() {
             email: email,
             password: password,
         }
-        axios.post('http://8783328865f7.ngrok.io/accounts/authenticate', data)
+        axios.post(' http://a6d7fd55ca1f.ngrok.io/accounts/authenticate', data)
         .then(result => {
             console.log(result)
 

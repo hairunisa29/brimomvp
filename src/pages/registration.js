@@ -71,7 +71,7 @@ const Registration =() => {
 
 
         console.log(data)
-        axios.post('http://8783328865f7.ngrok.io/accounts/register', data)
+        axios.post('http://a6d7fd55ca1f.ngrok.io/accounts/register', data)
         .then(result => {
             console.log(result)
         })

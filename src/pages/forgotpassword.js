@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import axios from 'axios';
-
+import Footer from './footer.js';
 import './pages.css';
 import Header2 from './header2.js'
 
@@ -34,7 +34,8 @@ export default function ForgotPassword() {
         return(
             <Fragment>
             <Header2/>
-            <div className="card" style={{width:"35%"}} id="forgotpassword">
+            <div className="forgotpassword">
+            <div className="card" style={{width:"35%"}}>
                 {
                     alert && (
                         <div className="alert alert-danger">
@@ -65,7 +66,10 @@ export default function ForgotPassword() {
                 <button type="submit" onClick={send} class="btn btn-primary">Send</button>
             </div>
             </div>
+            </div>
+            <Footer/>
         </Fragment>
+        
         )
     
 }
